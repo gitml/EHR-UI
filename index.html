@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>PsychMonkeyv6</title>
+	<link href="assets/style.css" rel="stylesheet"  />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <!--This Library contain main functions-->
+    <script src="assets/PMMain.js"></script>
+    <!--This Library deals with all events (drag, drop, click, double click)-->
+	<script src="assets/PMEventHandler.js"></script>
+    
+	<script>
+	
+	//caching ontology xml for smooth UI experience
+	//performing XML request via http
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	else
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	//if XML request fails, alerts user about error
+	if(xmlhttp==null)
+		alert("XML connection error!");
+	
+	//accessing ontology file
+	xmlhttp.open("GET","assets/psych20141123.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML;
+	
+	//Spacer Adjust
+	var spacerAdjust=27;
+	//setting "DEFAULT" index as an initial index (menu)
+	var currentMenu="DEFAULT";
+	//Possible Observations "DEFAULT" index
+	var indexArray=[];
+	//stores Possible Observations for each index
+	var indexArrayContents=[];
+	//
+	var menu=[];
+	
+	//stores multiple observations that are selected
+	//single left click
+	var selectedObservations=[];
+	
+	
+	// array stores Unconfirmed Findings
+	var findingsArray=[];
+	// array stores Confirmed Findings
+	var findingsArrayConfirmed=[];
+	
+	var indexFindingsArray=[];
+	var indexFindingsArrayConf=[];
+	var observationsFindingsArray=[];
+	var observationsFindingsArrayConf=[];
+	
+	var diagnosisArray=[];
+	var diagnosisArrayConfirmed=[];
+	
+	//Dynamic list of dragged observations
+	//2D array which stores dragged observarion id and type (Positive or Negative) [i][0]=id, [i][1]='pos' or 'neg'
+	var observationsArray=[];
+
+	//whenever row 1 is dragged over row 2
+	//flags get assigned id of the row	2
+	var flag=flagClass="";
+	
+	var singleClick=doubleClick=false;
+	</script>
+</head>
+
+<body onload="preloadDefaults()">
+<!--
+	<div id="videoContainer">
+    	
+        Monkey Logo
+        <img src="assets/icon_small.png" style="float:left;" />
+        
+        	This method causes compability issues in Opera
+        	<object width="450" height="300" data="http://www.youtube.com/v/lPmOcJ9YdYw">
+    	</object>
+     <table width="622" border="0">
+
+  <tr>
+    <td width="99" align="left" valign="bottom">
+<input type="button" name="resetButton" value="Reset Form" onclick="resetForm()" /></td>
+    <td width="425"><embed width="420" height="250" src="http://www.youtube.com/v/lPmOcJ9YdYw"> </embed>
+</td>
+    <td width="62">&nbsp;</td>
+  </tr>
+</table>       
+</div>
+
+--> 
+
+    
+	<div id="table">
+    	<div id="indexes">
+        	<div class="indexesHeader">
+            	<strong>Indexes</strong>
+            </div>
+            <div class="indexesBody" id="indexBody" ondrop="drop(event)" ondragover="allowDrop(event)" >
+            	
+            	<p id="DEFAULT_" class="indexTextNonDrag" onclick="indexIsSelected(event)" draggable="true" ondrag="noDrag(event)">DEFAULT</p>
+                <p id="MENTALSTATUSEXAM_" class="indexTextNonDrag" onclick="indexIsSelected(event)" draggable="true" ondrag="noDrag(event)">MENTAL STATUS EXAM</p>
+            </div>
+        </div>
+        
+    	<div id="possibleObservations">
+        	<div class="table_col_header">
+            	<strong>Possible Observations</strong>
+            </div>
+            <div class="table_col_body" id="possibleObservationsBody" ondrop="drop(event)" ondragover="allowDrop(event)">
+            
+            </div>
+        </div>
+        
+        <div id="bluebox">
+        
+            <div id="obervationsBox">
+                <div class="observations">
+                    <div class="table_col_header" >
+                        <strong>Observations</strong>
+                    </div>
+                    <div class="observationsBody" id="observationsBody" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                        
+                    </div>
+                </div>
+                
+                <div class="observations">
+                    <div class="table_col_header" >
+                        <strong>Negative Observations</strong>
+                    </div>
+                    <div class="observationsBody" id="negativeObservationsBody" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="findings">
+                <div class="table_col_header">
+                    <strong>Findings</strong>
+                </div>
+                <div class="table_col_body" id="findingsBody" ondrop="drop(event)" ondragover="allowDrop(event)">
+                </div>
+            </div>
+            
+            <div id="possibleDiagnoses">
+            	<div class="table_col_header">
+                    <strong>Diagnoses & Differential</strong>
+                </div>
+                <div class="table_col_body" id="diagnosisBody">
+                </div>
+            </div>
+            
+            <div id="plans">
+            	<div class="table_col_header">
+                    <strong>Plans</strong>
+                </div>
+                <div class="table_col_body" id="planBody">
+                </div>
+            </div>
+    	</div>
+    </div>
+   
+    <div id="debugger" style="visibility:hidden;">
+    	<span id="debugmes1" style="color:red;">1</span><br />
+        <span id="debugmes2" style="color:blue;">2</span><br />
+        <span id="debugmes3" style="color:green;">3</span><br />
+    </div>
+    
+<div id="clonableObjectStorage" style="visibility:hidden;">
+        <div id="cloneableObs" class="hiddenObsRow" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)"  onclick="obsClick(event)" ondblclick="onDoubleClickObservatoin(event)"></div>
+        
+        
+        <div id="cloneableEmptyPosObs" class="emptyObsRowTrans" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)" onclick="deleteEmptyPosObs(event)"></div>
+        
+        <div id="cloneableEmptyObs" class="emptyObsRowDotted" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)" onclick="deleteEmptyObs(event)"></div>
+        
+        <div id="cloneableObservationFinding" class="observation_finding_row" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)" onclick="undefinedClick(event)"></div>
+        <div id="cloneableConfObservationFinding" class="observation_finding_row_conf" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)" onclick="undefinedClick(event)"></div>
+        <div id="cloneableEmptyObsFind" class="emptyObsRowDotted" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)" onclick="deleteEmptyObsFind(event)"></div>
+        
+        
+        <div id="cloneableConfIndexFinding" class="index_finding_row_conf" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)" onclick="unconfirmIndexFinding(event)"></div>
+        
+        <div id="cloneableFinding" class="finding_row" onclick="confirmFinding(event)" ondblclick="onDoubleClickFinding(event)"  draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)"></div>
+        <div id="cloneableConfirmedFinding" class="finding_row_confirmed" onclick="unconfirmFinding(event)" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)"></div>
+        <div id="cloneableDiagnosis" class="finding_row" onclick="confirmDiagnosis(event)"></div>
+        <div id="cloneableConfirmedDiagnosis" class="finding_row_confirmed" onclick="unconfirmDiagnosis(event)"></div>
+        
+        <div id="cloneableIndex" class="indexText" onclick="indexIsSelected(event)" draggable="true" ondragstart="drag(event)"></div>
+        <div id="cloneableIndexFinding" class="index_finding_row" draggable="true" ondragstart="drag(event)" ondragover="dragOver(event)" ondragleave="dragOut(event)" onclick="confirmIndexFinding(event)"></div>
+    </div>
+</body>
+</html>
