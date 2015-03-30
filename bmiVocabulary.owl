@@ -1,0 +1,1074 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2004/02/skos/core#"
+     xml:base="http://www.w3.org/2004/02/skos/core"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.w3.org/2004/02/skos/core">
+        <dct:creator>Alistair Miles</dct:creator>
+        <dct:contributor>Dave Beckett</dct:contributor>
+        <dct:description xml:lang="en">An RDF vocabulary for describing the basic structure and content of concept schemes such as thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, other types of controlled vocabulary, and also concept schemes embedded in glossaries and terminologies.</dct:description>
+        <dct:title xml:lang="en">SKOS Vocabulary</dct:title>
+        <dct:creator>Sean Bechhofer</dct:creator>
+        <dct:contributor>Participants in W3C&apos;s Semantic Web Deployment Working Group.</dct:contributor>
+        <dct:contributor>Nikki Rogers</dct:contributor>
+        <rdfs:seeAlso rdf:resource="http://www.w3.org/TR/skos-reference/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;altLabel">
+        <rdfs:label xml:lang="en">alternative label</rdfs:label>
+        <example xml:lang="en">Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel).</example>
+        <definition xml:lang="en">An alternative lexical label for a resource.</definition>
+        <rdfs:comment xml:lang="en">The range of skos:altLabel is the class of RDF plain literals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rdfs;label"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#changeNote -->
+
+    <owl:AnnotationProperty rdf:about="&skos;changeNote">
+        <rdfs:label xml:lang="en">change note</rdfs:label>
+        <definition xml:lang="en">A note about a modification to a concept.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="&skos;definition">
+        <rdfs:label xml:lang="en">definition</rdfs:label>
+        <definition xml:lang="en">A statement or formal explanation of the meaning of a concept.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#editorialNote -->
+
+    <owl:AnnotationProperty rdf:about="&skos;editorialNote">
+        <rdfs:label xml:lang="en">editorial note</rdfs:label>
+        <definition xml:lang="en">A note for an editor, translator or maintainer of the vocabulary.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="&skos;example">
+        <rdfs:label xml:lang="en">example</rdfs:label>
+        <definition xml:lang="en">An example of the use of a concept.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hiddenLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;hiddenLabel">
+        <rdfs:label xml:lang="en">hidden label</rdfs:label>
+        <definition xml:lang="en">A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations.</definition>
+        <rdfs:comment xml:lang="en">The range of skos:hiddenLabel is the class of RDF plain literals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rdfs;label"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#historyNote -->
+
+    <owl:AnnotationProperty rdf:about="&skos;historyNote">
+        <rdfs:label xml:lang="en">history note</rdfs:label>
+        <definition xml:lang="en">A note about the past state/use/meaning of a concept.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#note -->
+
+    <owl:AnnotationProperty rdf:about="&skos;note">
+        <rdfs:label xml:lang="en">note</rdfs:label>
+        <definition xml:lang="en">A general note, for any purpose.</definition>
+        <scopeNote xml:lang="en">This property may be used directly, or as a super-property for more specific note types.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="&skos;prefLabel">
+        <rdfs:label xml:lang="en">preferred label</rdfs:label>
+        <rdfs:comment xml:lang="en">A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag.</rdfs:comment>
+        <definition xml:lang="en">The preferred lexical label for a resource, in a given language.</definition>
+        <rdfs:comment xml:lang="en">The range of skos:prefLabel is the class of RDF plain literals.</rdfs:comment>
+        <rdfs:comment xml:lang="en">skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
+      disjoint properties.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rdfs;label"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#scopeNote -->
+
+    <owl:AnnotationProperty rdf:about="&skos;scopeNote">
+        <rdfs:label xml:lang="en">scope note</rdfs:label>
+        <definition xml:lang="en">A note that helps to clarify the meaning and/or the use of a concept.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#weight -->
+
+    <owl:AnnotationProperty rdf:about="&skos;weight"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broadMatch -->
+
+    <owl:ObjectProperty rdf:about="&skos;broadMatch">
+        <rdfs:label xml:lang="en">has broader match</rdfs:label>
+        <definition xml:lang="en">skos:broadMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;broader"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;mappingRelation"/>
+        <owl:inverseOf rdf:resource="&skos;narrowMatch"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+    <owl:ObjectProperty rdf:about="&skos;broader">
+        <rdfs:label xml:lang="en">has broader</rdfs:label>
+        <rdfs:comment xml:lang="en">Broader concepts are typically rendered as parents in a concept hierarchy (tree).</rdfs:comment>
+        <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
+        <definition xml:lang="en">Relates a concept to a concept that is more general in meaning.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;broaderTransitive"/>
+        <owl:inverseOf rdf:resource="&skos;narrower"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broaderTransitive -->
+
+    <owl:ObjectProperty rdf:about="&skos;broaderTransitive">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">has broader transitive</rdfs:label>
+        <scopeNote xml:lang="en">By convention, skos:broaderTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</scopeNote>
+        <definition>skos:broaderTransitive is a transitive superproperty of skos:broader.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;semanticRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:ObjectProperty rdf:about="&skos;closeMatch">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">has close match</rdfs:label>
+        <definition xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of &quot;compound errors&quot; when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;mappingRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+    <owl:ObjectProperty rdf:about="&skos;exactMatch">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">has exact match</rdfs:label>
+        <rdfs:comment xml:lang="en">skos:exactMatch is disjoint with each of the properties skos:broadMatch and skos:relatedMatch.</rdfs:comment>
+        <definition xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;closeMatch"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hasTopConcept -->
+
+    <owl:ObjectProperty rdf:about="&skos;hasTopConcept">
+        <rdfs:label xml:lang="en">has top concept</rdfs:label>
+        <definition xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+        <rdfs:domain rdf:resource="&skos;ConceptScheme"/>
+        <owl:inverseOf rdf:resource="&skos;topConceptOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+    <owl:ObjectProperty rdf:about="&skos;inScheme">
+        <rdfs:label xml:lang="en">is in scheme</rdfs:label>
+        <scopeNote xml:lang="en">A concept may be a member of more than one concept scheme.</scopeNote>
+        <definition xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:range rdf:resource="&skos;ConceptScheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#is-suggested-by -->
+
+    <owl:ObjectProperty rdf:about="&skos;is-suggested-by">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <weight rdf:datatype="&xsd;decimal"></weight>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;narrowerTransitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#mappingRelation -->
+
+    <owl:ObjectProperty rdf:about="&skos;mappingRelation">
+        <rdfs:label xml:lang="en">is in mapping relation with</rdfs:label>
+        <definition xml:lang="en">Relates two concepts coming, by convention, from different schemes, and that have comparable meanings</definition>
+        <rdfs:comment xml:lang="en">These concept mapping relations mirror semantic relations, and the data model defined below is similar (with the exception of skos:exactMatch) to the data model defined for semantic relations. A distinct vocabulary is provided for concept mapping relations, to provide a convenient way to differentiate links within a concept scheme from links between concept schemes. However, this pattern of usage is not a formal requirement of the SKOS data model, and relies on informal definitions of best practice.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;semanticRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#member -->
+
+    <owl:ObjectProperty rdf:about="&skos;member">
+        <rdfs:label xml:lang="en">has member</rdfs:label>
+        <definition xml:lang="en">Relates a collection to one of its members.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:domain rdf:resource="&skos;Collection"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&skos;Collection"/>
+                    <rdf:Description rdf:about="&skos;Concept"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#memberList -->
+
+    <owl:ObjectProperty rdf:about="&skos;memberList">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">has member list</rdfs:label>
+        <rdfs:comment xml:lang="en">For any resource, every item in the list given as the value of the
+      skos:memberList property is also a value of the skos:member property.</rdfs:comment>
+        <definition xml:lang="en">Relates an ordered collection to the RDF list containing its members.</definition>
+        <rdfs:range rdf:resource="&rdf;List"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:domain rdf:resource="&skos;OrderedCollection"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrowMatch -->
+
+    <owl:ObjectProperty rdf:about="&skos;narrowMatch">
+        <rdfs:label xml:lang="en">has narrower match</rdfs:label>
+        <definition xml:lang="en">skos:narrowMatch is used to state a hierarchical mapping link between two conceptual resources in different concept schemes.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;mappingRelation"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;narrower"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrower -->
+
+    <owl:ObjectProperty rdf:about="&skos;narrower">
+        <rdfs:label xml:lang="en">has narrower</rdfs:label>
+        <scopeNote xml:lang="en">By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources.</scopeNote>
+        <rdfs:comment xml:lang="en">Narrower concepts are typically rendered as children in a concept hierarchy (tree).</rdfs:comment>
+        <definition xml:lang="en">Relates a concept to a concept that is more specific in meaning.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;narrowerTransitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrowerTransitive -->
+
+    <owl:ObjectProperty rdf:about="&skos;narrowerTransitive">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">has narrower transitive</rdfs:label>
+        <definition>skos:narrowerTransitive is a transitive superproperty of skos:narrower.</definition>
+        <scopeNote xml:lang="en">By convention, skos:narrowerTransitive is not used to make assertions. Rather, the properties can be used to draw inferences about the transitive closure of the hierarchical relation, which is useful e.g. when implementing a simple query expansion algorithm in a search application.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <owl:inverseOf rdf:resource="&skos;broaderTransitive"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;semanticRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#partOf -->
+
+    <owl:ObjectProperty rdf:about="&skos;partOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;broaderTransitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#related -->
+
+    <owl:ObjectProperty rdf:about="&skos;related">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">has related</rdfs:label>
+        <definition xml:lang="en">Relates a concept to a concept with which there is an associative semantic relationship.</definition>
+        <rdfs:comment xml:lang="en">skos:related is disjoint with skos:broaderTransitive</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;semanticRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#relatedMatch -->
+
+    <owl:ObjectProperty rdf:about="&skos;relatedMatch">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdfs:label xml:lang="en">has related match</rdfs:label>
+        <definition xml:lang="en">skos:relatedMatch is used to state an associative mapping link between two conceptual resources in different concept schemes.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;mappingRelation"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;related"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#semanticRelation -->
+
+    <owl:ObjectProperty rdf:about="&skos;semanticRelation">
+        <rdfs:label xml:lang="en">is in semantic relation with</rdfs:label>
+        <definition xml:lang="en">Links a concept to a concept related by meaning.</definition>
+        <scopeNote xml:lang="en">This property should not be used directly, but as a super-property for all properties denoting a relationship of meaning between concepts.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#subTypeOf -->
+
+    <owl:ObjectProperty rdf:about="&skos;subTypeOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;broaderTransitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#suggests -->
+
+    <owl:ObjectProperty rdf:about="&skos;suggests">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;broaderTransitive"/>
+        <owl:inverseOf rdf:resource="&skos;is-suggested-by"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#topConceptOf -->
+
+    <owl:ObjectProperty rdf:about="&skos;topConceptOf">
+        <rdfs:label xml:lang="en">is top concept in scheme</rdfs:label>
+        <definition xml:lang="en">Relates a concept to the concept scheme that it is a top level concept of.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <rdfs:domain rdf:resource="&skos;Concept"/>
+        <rdfs:range rdf:resource="&skos;ConceptScheme"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;inScheme"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+    <owl:DatatypeProperty rdf:about="&skos;notation">
+        <rdfs:label xml:lang="en">notation</rdfs:label>
+        <definition xml:lang="en">A notation, also known as classification code, is a string of characters such as &quot;T58.5&quot; or &quot;303.4833&quot; used to uniquely identify a concept within the scope of a given concept scheme.</definition>
+        <scopeNote xml:lang="en">By convention, skos:notation is used with a typed literal in the object position of the triple.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
+
+    <owl:Class rdf:about="&rdf;List"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Collection -->
+
+    <owl:Class rdf:about="&skos;Collection">
+        <rdfs:label xml:lang="en">Collection</rdfs:label>
+        <owl:disjointWith rdf:resource="&skos;Concept"/>
+        <owl:disjointWith rdf:resource="&skos;ConceptScheme"/>
+        <definition xml:lang="en">A meaningful collection of concepts.</definition>
+        <scopeNote xml:lang="en">Labelled collections can be used where you would like a set of concepts to be displayed under a &apos;node label&apos; in the hierarchy.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+    <owl:Class rdf:about="&skos;Concept">
+        <rdfs:label xml:lang="en">Concept</rdfs:label>
+        <owl:disjointWith rdf:resource="&skos;ConceptScheme"/>
+        <definition xml:lang="en">An idea or notion; a unit of thought.</definition>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+    <owl:Class rdf:about="&skos;ConceptScheme">
+        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+        <scopeNote xml:lang="en">A concept scheme may be defined to include concepts from different sources.</scopeNote>
+        <definition xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</definition>
+        <example xml:lang="en">Thesauri, classification schemes, subject heading lists, taxonomies, &apos;folksonomies&apos;, and other types of controlled vocabulary are all examples of concept schemes. Concept schemes are also embedded in glossaries and terminologies.</example>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Condition -->
+
+    <owl:Class rdf:about="&skos;Condition">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Default-observations -->
+
+    <owl:Class rdf:about="&skos;Default-observations">
+        <rdfs:subClassOf rdf:resource="&skos;OrderedCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Mental-status-exam -->
+
+    <owl:Class rdf:about="&skos;Mental-status-exam">
+        <rdfs:subClassOf rdf:resource="&skos;OrderedCollection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Observation -->
+
+    <owl:Class rdf:about="&skos;Observation">
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#OrderedCollection -->
+
+    <owl:Class rdf:about="&skos;OrderedCollection">
+        <rdfs:label xml:lang="en">Ordered Collection</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;Collection"/>
+        <definition xml:lang="en">An ordered collection of concepts, where both the grouping and the ordering are meaningful.</definition>
+        <scopeNote xml:lang="en">Ordered collections can be used where you would like a set of concepts to be displayed in a specific order, and optionally under a &apos;node label&apos;.</scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Generalized-Anxiety-Disorder -->
+
+    <owl:NamedIndividual rdf:about="&skos;Generalized-Anxiety-Disorder">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">21897009</notation>
+        <is-suggested-by rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.50</weight>
+        <owl:annotatedSource rdf:resource="&skos;Generalized-Anxiety-Disorder"/>
+        <owl:annotatedTarget rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Major-Depressive-Disorder -->
+
+    <owl:NamedIndividual rdf:about="&skos;Major-Depressive-Disorder">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">370143000</notation>
+        <prefLabel>Major depressive disorder</prefLabel>
+        <is-suggested-by rdf:resource="&skos;depression"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.50</weight>
+        <owl:annotatedSource rdf:resource="&skos;Major-Depressive-Disorder"/>
+        <owl:annotatedTarget rdf:resource="&skos;depression"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#agoraphobia -->
+
+    <owl:NamedIndividual rdf:about="&skos;agoraphobia">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">70691001</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#anxiety -->
+
+    <owl:NamedIndividual rdf:about="&skos;anxiety">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">48694002</notation>
+        <suggests rdf:resource="&skos;Generalized-Anxiety-Disorder"/>
+        <is-suggested-by rdf:resource="&skos;agoraphobia"/>
+        <is-suggested-by rdf:resource="&skos;attention-poor"/>
+        <is-suggested-by rdf:resource="&skos;fatigue"/>
+        <is-suggested-by rdf:resource="&skos;focus-poor"/>
+        <is-suggested-by rdf:resource="&skos;irritability"/>
+        <is-suggested-by rdf:resource="&skos;muscle-tension"/>
+        <is-suggested-by rdf:resource="&skos;nerves-bad"/>
+        <is-suggested-by rdf:resource="&skos;nervous"/>
+        <is-suggested-by rdf:resource="&skos;on-edge"/>
+        <is-suggested-by rdf:resource="&skos;panic-attacks"/>
+        <is-suggested-by rdf:resource="&skos;racing-thoughts"/>
+        <is-suggested-by rdf:resource="&skos;restless"/>
+        <is-suggested-by rdf:resource="&skos;skin-picking"/>
+        <is-suggested-by rdf:resource="&skos;stressed-out"/>
+        <is-suggested-by rdf:resource="&skos;thoughts-ruminating"/>
+        <is-suggested-by rdf:resource="&skos;worry"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.5</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;panic-attacks"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.10</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;racing-thoughts"/>
+    </owl:Axiom>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;NegativePropertyAssertion"/>
+        <weight rdf:datatype="&xsd;decimal">0.4</weight>
+        <owl:sourceIndividual rdf:resource="&skos;anxiety"/>
+        <owl:assertionProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:targetIndividual rdf:resource="&skos;relaxed-feeling"/>
+    </rdf:Description>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.20</weight>
+        <owl:annotatedTarget rdf:resource="&skos;agoraphobia"/>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.20</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedTarget rdf:resource="&skos;irritability"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.15</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;restless"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.25</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;muscle-tension"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.25</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;nervous"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.10</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedTarget rdf:resource="&skos;fatigue"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.15</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;skin-picking"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.12</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;thoughts-ruminating"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.2</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;nerves-bad"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.10</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedTarget rdf:resource="&skos;focus-poor"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.2</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;nervous"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.18</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;worry"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.05</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;stressed-out"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.2</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;on-edge"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.10</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedTarget rdf:resource="&skos;attention-poor"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#attention-poor -->
+
+    <owl:NamedIndividual rdf:about="&skos;attention-poor">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">247764002</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+        <owl:sameAs rdf:resource="&skos;distracted-easily"/>
+        <owl:sameAs rdf:resource="&skos;focus-poor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#bmiVocabulary -->
+
+    <owl:NamedIndividual rdf:about="&skos;bmiVocabulary">
+        <rdf:type rdf:resource="&skos;ConceptScheme"/>
+        <notation>bmi</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#crying-spells -->
+
+    <owl:NamedIndividual rdf:about="&skos;crying-spells">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">271951008</notation>
+        <prefLabel>crying</prefLabel>
+        <suggests rdf:resource="&skos;depression"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#depression -->
+
+    <owl:NamedIndividual rdf:about="&skos;depression">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">35489007</notation>
+        <prefLabel>depression</prefLabel>
+        <suggests rdf:resource="&skos;Major-Depressive-Disorder"/>
+        <is-suggested-by rdf:resource="&skos;crying-spells"/>
+        <is-suggested-by rdf:resource="&skos;fatigue"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.12</weight>
+        <owl:annotatedSource rdf:resource="&skos;depression"/>
+        <owl:annotatedTarget rdf:resource="&skos;fatigue"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.20</weight>
+        <owl:annotatedTarget rdf:resource="&skos;crying-spells"/>
+        <owl:annotatedSource rdf:resource="&skos;depression"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#distracted-easily -->
+
+    <owl:NamedIndividual rdf:about="&skos;distracted-easily">
+        <notation rdf:datatype="&xsd;integer">247764002</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#fatigue -->
+
+    <owl:NamedIndividual rdf:about="&skos;fatigue">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">84229001</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+        <suggests rdf:resource="&skos;depression"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#focus-poor -->
+
+    <owl:NamedIndividual rdf:about="&skos;focus-poor">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#irritability -->
+
+    <owl:NamedIndividual rdf:about="&skos;irritability">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">55929007</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#mania-hypomania -->
+
+    <owl:NamedIndividual rdf:about="&skos;mania-hypomania">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">231494001</notation>
+        <is-suggested-by rdf:resource="&skos;racing-thoughts"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.15</weight>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedSource rdf:resource="&skos;mania-hypomania"/>
+        <owl:annotatedTarget rdf:resource="&skos;racing-thoughts"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#medical-problems -->
+
+    <owl:NamedIndividual rdf:about="&skos;medical-problems">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">27624003</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#muscle-tension -->
+
+    <owl:NamedIndividual rdf:about="&skos;muscle-tension">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">250069006</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#nerves-bad -->
+
+    <owl:NamedIndividual rdf:about="&skos;nerves-bad">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">424196004</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#nervous -->
+
+    <owl:NamedIndividual rdf:about="&skos;nervous">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">424196004</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#neurodevelopmental -->
+
+    <owl:NamedIndividual rdf:about="&skos;neurodevelopmental">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">129104009</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#obsessive-compulsive -->
+
+    <owl:NamedIndividual rdf:about="&skos;obsessive-compulsive">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">12479006</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#on-edge -->
+
+    <owl:NamedIndividual rdf:about="&skos;on-edge">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">424196004</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#panic-attacks -->
+
+    <owl:NamedIndividual rdf:about="&skos;panic-attacks">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">225624000</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#personality-disorder -->
+
+    <owl:NamedIndividual rdf:about="&skos;personality-disorder">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">33449004</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#psychosis -->
+
+    <owl:NamedIndividual rdf:about="&skos;psychosis">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">69322001</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#racing-thoughts -->
+
+    <owl:NamedIndividual rdf:about="&skos;racing-thoughts">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">285303006</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#relaxed-feeling -->
+
+    <owl:NamedIndividual rdf:about="&skos;relaxed-feeling">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">102894008</notation>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;NegativePropertyAssertion"/>
+        <owl:targetIndividual rdf:resource="&skos;anxiety"/>
+        <owl:sourceIndividual rdf:resource="&skos;relaxed-feeling"/>
+        <owl:assertionProperty rdf:resource="&skos;suggests"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#restless -->
+
+    <owl:NamedIndividual rdf:about="&skos;restless">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">162221009</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#skin-picking -->
+
+    <owl:NamedIndividual rdf:about="&skos;skin-picking">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">284760000</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#stressed-out -->
+
+    <owl:NamedIndividual rdf:about="&skos;stressed-out">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">224974006</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#substance-abuse -->
+
+    <owl:NamedIndividual rdf:about="&skos;substance-abuse">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">66214007</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#suicidal-homocidal -->
+
+    <owl:NamedIndividual rdf:about="&skos;suicidal-homocidal">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">285261008</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#thoughts-ruminating -->
+
+    <owl:NamedIndividual rdf:about="&skos;thoughts-ruminating">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">86110000</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#traumatic-stress -->
+
+    <owl:NamedIndividual rdf:about="&skos;traumatic-stress">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">47505003</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#worry -->
+
+    <owl:NamedIndividual rdf:about="&skos;worry">
+        <rdf:type rdf:resource="&skos;Observation"/>
+        <notation rdf:datatype="&xsd;integer">79015004</notation>
+        <suggests rdf:resource="&skos;anxiety"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
