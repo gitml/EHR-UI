@@ -583,6 +583,54 @@
     
 
 
+    <!-- http://www.w3.org/2004/02/skos/core#ADHD -->
+
+    <owl:NamedIndividual rdf:about="&skos;ADHD">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">406506008</notation>
+        <is-suggested-by rdf:resource="&skos;neurodevelopmental"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.50</weight>
+        <owl:annotatedSource rdf:resource="&skos;ADHD"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;neurodevelopmental"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Adjustment-Disorder-Depressed-Mood -->
+
+    <owl:NamedIndividual rdf:about="&skos;Adjustment-Disorder-Depressed-Mood">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">57194009</notation>
+        <is-suggested-by rdf:resource="&skos;depression"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.50</weight>
+        <owl:annotatedSource rdf:resource="&skos;Adjustment-Disorder-Depressed-Mood"/>
+        <owl:annotatedTarget rdf:resource="&skos;depression"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Bipolar-Disorder-NOS -->
+
+    <owl:NamedIndividual rdf:about="&skos;Bipolar-Disorder-NOS">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">13746004</notation>
+        <is-suggested-by rdf:resource="&skos;mania-hypomania"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">1</weight>
+        <owl:annotatedSource rdf:resource="&skos;Bipolar-Disorder-NOS"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;mania-hypomania"/>
+    </owl:Axiom>
+    
+
+
     <!-- http://www.w3.org/2004/02/skos/core#Generalized-Anxiety-Disorder -->
 
     <owl:NamedIndividual rdf:about="&skos;Generalized-Anxiety-Disorder">
@@ -613,6 +661,57 @@
         <owl:annotatedTarget rdf:resource="&skos;depression"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
     </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Panic-Disorder -->
+
+    <owl:NamedIndividual rdf:about="&skos;Panic-Disorder">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">371631005</notation>
+        <is-suggested-by rdf:resource="&skos;anxiety"/>
+        <is-suggested-by rdf:resource="&skos;panic-attacks"/>
+    </owl:NamedIndividual>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.80</weight>
+        <owl:annotatedSource rdf:resource="&skos;Panic-Disorder"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;panic-attacks"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.50</weight>
+        <owl:annotatedSource rdf:resource="&skos;Panic-Disorder"/>
+        <owl:annotatedTarget rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Personality-Disorder-NOS -->
+
+    <owl:NamedIndividual rdf:about="&skos;Personality-Disorder-NOS">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">33449004</notation>
+        <owl:sameAs rdf:resource="&skos;personality-disorder"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Posttraumatic-Stress-Disorder -->
+
+    <owl:NamedIndividual rdf:about="&skos;Posttraumatic-Stress-Disorder">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">47505003</notation>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Substance-Abuse-NOS -->
+
+    <owl:NamedIndividual rdf:about="&skos;Substance-Abuse-NOS">
+        <rdf:type rdf:resource="&skos;Condition"/>
+        <notation rdf:datatype="&xsd;integer">66214007</notation>
+    </owl:NamedIndividual>
     
 
 
@@ -650,16 +749,16 @@
         <is-suggested-by rdf:resource="&skos;worry"/>
     </owl:NamedIndividual>
     <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.5</weight>
-        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-        <owl:annotatedTarget rdf:resource="&skos;panic-attacks"/>
-    </owl:Axiom>
-    <owl:Axiom>
         <weight rdf:datatype="&xsd;decimal">0.10</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedTarget rdf:resource="&skos;attention-poor"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-        <owl:annotatedTarget rdf:resource="&skos;racing-thoughts"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.15</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;restless"/>
     </owl:Axiom>
     <rdf:Description>
         <rdf:type rdf:resource="&owl;NegativePropertyAssertion"/>
@@ -669,52 +768,58 @@
         <owl:targetIndividual rdf:resource="&skos;relaxed-feeling"/>
     </rdf:Description>
     <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.20</weight>
-        <owl:annotatedTarget rdf:resource="&skos;agoraphobia"/>
-        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.20</weight>
-        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedTarget rdf:resource="&skos;irritability"/>
-        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">.15</weight>
-        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-        <owl:annotatedTarget rdf:resource="&skos;restless"/>
-    </owl:Axiom>
-    <owl:Axiom>
         <weight rdf:datatype="&xsd;decimal">0.25</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
         <owl:annotatedTarget rdf:resource="&skos;muscle-tension"/>
     </owl:Axiom>
     <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.25</weight>
+        <weight rdf:datatype="&xsd;decimal">0.2</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
         <owl:annotatedTarget rdf:resource="&skos;nervous"/>
     </owl:Axiom>
     <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.10</weight>
+        <weight rdf:datatype="&xsd;decimal">0.20</weight>
+        <owl:annotatedTarget rdf:resource="&skos;agoraphobia"/>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedTarget rdf:resource="&skos;fatigue"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
     </owl:Axiom>
     <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.15</weight>
+        <weight rdf:datatype="&xsd;decimal">0.2</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-        <owl:annotatedTarget rdf:resource="&skos;skin-picking"/>
+        <owl:annotatedTarget rdf:resource="&skos;on-edge"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.5</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;panic-attacks"/>
     </owl:Axiom>
     <owl:Axiom>
         <weight rdf:datatype="&xsd;decimal">.12</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
         <owl:annotatedTarget rdf:resource="&skos;thoughts-ruminating"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.05</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;stressed-out"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">.18</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;worry"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.15</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;skin-picking"/>
     </owl:Axiom>
     <owl:Axiom>
         <weight rdf:datatype="&xsd;decimal">0.2</weight>
@@ -725,37 +830,31 @@
     <owl:Axiom>
         <weight rdf:datatype="&xsd;decimal">0.10</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedTarget rdf:resource="&skos;focus-poor"/>
+        <owl:annotatedTarget rdf:resource="&skos;fatigue"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
     </owl:Axiom>
     <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.2</weight>
+        <weight rdf:datatype="&xsd;decimal">0.25</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
         <owl:annotatedTarget rdf:resource="&skos;nervous"/>
     </owl:Axiom>
     <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">.18</weight>
+        <weight rdf:datatype="&xsd;decimal">0.20</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedTarget rdf:resource="&skos;irritability"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-        <owl:annotatedTarget rdf:resource="&skos;worry"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">.05</weight>
-        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-        <owl:annotatedTarget rdf:resource="&skos;stressed-out"/>
-    </owl:Axiom>
-    <owl:Axiom>
-        <weight rdf:datatype="&xsd;decimal">0.2</weight>
-        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
-        <owl:annotatedTarget rdf:resource="&skos;on-edge"/>
     </owl:Axiom>
     <owl:Axiom>
         <weight rdf:datatype="&xsd;decimal">0.10</weight>
         <owl:annotatedSource rdf:resource="&skos;anxiety"/>
-        <owl:annotatedTarget rdf:resource="&skos;attention-poor"/>
+        <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
+        <owl:annotatedTarget rdf:resource="&skos;racing-thoughts"/>
+    </owl:Axiom>
+    <owl:Axiom>
+        <weight rdf:datatype="&xsd;decimal">0.10</weight>
+        <owl:annotatedSource rdf:resource="&skos;anxiety"/>
+        <owl:annotatedTarget rdf:resource="&skos;focus-poor"/>
         <owl:annotatedProperty rdf:resource="&skos;is-suggested-by"/>
     </owl:Axiom>
     
