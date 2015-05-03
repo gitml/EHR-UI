@@ -20,7 +20,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.asu.bmi.cad</groupId>
-  <artifactId>PsychMonkey7a</artifactId>
+  <artifactId>PsychMonkey7</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
@@ -91,17 +91,17 @@
     <dependencies>
       <dependency>
         <groupId>edu.asu.bmi.cad</groupId>
-        <artifactId>PsychMonkey7a-api</artifactId>
+        <artifactId>PsychMonkey7-api</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>edu.asu.bmi.cad</groupId>
-        <artifactId>PsychMonkey7a-api-impl</artifactId>
+        <artifactId>PsychMonkey7-api-impl</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>edu.asu.bmi.cad</groupId>
-        <artifactId>PsychMonkey7a-webapp</artifactId>
+        <artifactId>PsychMonkey7-webapp</artifactId>
         <version>${project.version}</version>
         <type>war</type>
       </dependency>
@@ -218,10 +218,10 @@
   </pluginRepositories>
 
   <modules>
-    <module>PsychMonkey7a-api</module>
-    <module>PsychMonkey7a-api-impl</module>
-    <module>PsychMonkey7a-webapp</module>
-    <module>PsychMonkey7a-webapp-exec</module>
-    <module>PsychMonkey7a-webapp-it</module>
+    <module>PsychMonkey7-api</module>
+    <module>PsychMonkey7-api-impl</module>
+    <module>PsychMonkey7-webapp</module>
+    <module>PsychMonkey7-webapp-exec</module>
+    <module>PsychMonkey7-webapp-it</module>
   </modules>
 </project>
