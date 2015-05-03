@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: webapp.api.impl.TestDefaultHelloService
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.14 sec <<< FAILURE!
+testSayHello(webapp.api.impl.TestDefaultHelloService)  Time elapsed: 10.963 sec  <<< ERROR!
+org.apache.cxf.jaxrs.client.ServerWebApplicationException: 
+	at org.apache.cxf.jaxrs.client.ClientProxyImpl.checkResponse(ClientProxyImpl.java:278)
+	at org.apache.cxf.jaxrs.client.ClientProxyImpl.handleResponse(ClientProxyImpl.java:575)
+	at org.apache.cxf.jaxrs.client.ClientProxyImpl.doChainedInvocation(ClientProxyImpl.java:544)
+	at org.apache.cxf.jaxrs.client.ClientProxyImpl.invoke(ClientProxyImpl.java:205)
+	at com.sun.proxy.$Proxy20.sayHello(Unknown Source)
+	at webapp.api.impl.TestDefaultHelloService.testSayHello(TestDefaultHelloService.java:99)
+
