@@ -14,3 +14,5 @@ Details:
 Strut- Login page
 
 WebApplication1- Patient Database and Psych Monkey Care Plan Tool
+
+MyNewDatabase- this db works with WebApplication1
